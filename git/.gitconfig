@@ -1,0 +1,7 @@
+[user]
+	email = defrann8208@outlook.com
+	name = Nicholas Defranco
+[core]
+	editor = vim
+[commit]
+	gpgSign = true
