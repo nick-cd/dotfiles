@@ -2,7 +2,7 @@
 
 autocmd FileType javascript,css,html setlocal shiftwidth=2 softtabstop=2 expandtab
 
-call plug#begin('.')
+call plug#begin('~/.config/nvim/')
 
 Plug 'vim-airline/vim-airline'
 
