@@ -5,3 +5,6 @@
 	editor = vim
 [commit]
 	gpgSign = true
+[alias]
+	unstage = restore --stage
+	discard = restore
