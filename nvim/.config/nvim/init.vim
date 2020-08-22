@@ -2,6 +2,12 @@
 
 autocmd FileType javascript,css,html setlocal shiftwidth=2 softtabstop=2 expandtab
 
+call plug#begin('.')
+
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
 " Vim is based on Vi. Setting `nocompatible` switches from the default
