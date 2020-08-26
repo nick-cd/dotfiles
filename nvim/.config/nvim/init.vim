@@ -1,5 +1,7 @@
 " Comments in Vimscript start with a `"`.
 
+" files for any web dev should be two spaces
+autocmd FileType yaml,markdown,javascript,css,html setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " vim-plug as the plugin manager https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/')
