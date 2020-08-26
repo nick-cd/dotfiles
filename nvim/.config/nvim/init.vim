@@ -1,10 +1,15 @@
 " Comments in Vimscript start with a `"`.
 
-autocmd FileType javascript,css,html setlocal shiftwidth=2 softtabstop=2 expandtab
 
+" vim-plug as the plugin manager https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/')
 
+" https://github.com/vim-airline/vim-airline
+" pretty status bar
 Plug 'vim-airline/vim-airline'
+" https://github.com/danro/rename.vim
+" Adds the :Rename comand allowing me to rename files
+Plug 'danro/rename.vim'
 
 call plug#end()
 
