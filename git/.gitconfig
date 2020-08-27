@@ -8,3 +8,5 @@
 [alias]
 	unstage = restore --stage
 	discard = restore
+[pager]
+	branch = false
