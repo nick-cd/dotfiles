@@ -42,3 +42,9 @@ To use vim-plug you must install it, you must install it, follow the
 If you already know vim-plug, you can use the getvimplug.sh script to download vim-plug (for linux/unix) to save some time 
 getting the install command from the offical website.
 
+## How to use
+
+1. ```git clone https://github.com/NicholasDefranco/dotfiles/``` the repository
+2. ```stow --dir=path --target="~" package``` 
+  * Where _path_ is the path to the root directory of the cloned repository
+  * Where _package_ is the directory containing the configuration files you need (within my repository)
