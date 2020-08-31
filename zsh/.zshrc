@@ -1,8 +1,25 @@
+# Code from the offical git-scm website
+# https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+# **I have made the branch name blue here**
+RPROMPT=%F{blue}\$vcs_info_msg_0_%f
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%B(%b) %r'
+
 # Credit to Luke Smith for these configs
 # https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 # Enable colors
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+# Added a ternary conditional that changes the colour of the dollar prompt depending on the exit code of the previously executed command
+# Found out about this feature here:
+# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+#
+# The dir path will be shorten if it is longer than three elements, the code for this was found here:
+# https://unix.stackexchange.com/questions/273529/shorten-path-in-zsh-prompt#273567
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%(3~|../%2~|%~)%{$fg[red]%}]%(?.%{$fg[green]%}.%{$fg[red]%}) $%{$reset_color%}% %b "
 
 # History in cache directory:
 HISTSIZE=10000
