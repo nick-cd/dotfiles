@@ -1,3 +1,13 @@
+# Code from the offical git-scm website
+# https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+# Made the colour green
+RPROMPT=%F{green}\$vcs_info_msg_0_%f
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%b'
+
 # Credit to Luke Smith for these configs
 # https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 # Enable colors
