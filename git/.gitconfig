@@ -3,8 +3,10 @@
 	name = Nicholas Defranco
 [core]
 	editor = vim
+	excludesfile = /home/nick/.config/git/gitignore_global
 [commit]
 	gpgSign = true
+	verbose = true
 [alias]
 	unstage = restore --stage
 	discard = restore
