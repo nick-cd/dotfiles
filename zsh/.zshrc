@@ -72,3 +72,12 @@ bindkey '^e' edit-command-line
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+if [ -d "${ZSHPLUGS}" ]; then
+
+	if [ -f "${ZSHPLUGS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+		# syntax-highlighting must be the last plugin sourced
+		# https://github.com/zsh-users/zsh-syntax-highlighting
+		source ${ZSHPLUGS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	fi
+fi
