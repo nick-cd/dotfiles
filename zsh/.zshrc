@@ -69,9 +69,8 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+# Load aliases
+[ -f "$HOME/.config/aliases" ] && source "$HOME/.config/aliases"
 
 if [ -d "${ZSHPLUGS}" ]; then
 
