@@ -3,7 +3,10 @@
 # Change working dir in shell to last dir in lf on exit (adapted from ranger).
 lfcd () {
 	tmp="$(mktemp)"
-	lf -last-dir-path="$tmp" "$@"
+	lf -last-dir-path="$tmp" "$@" \ || {
+		echo "head over to: https://github.com/gokcehan/lf" >&2
+		return 1
+	}
 	if [ -f "$tmp" ]; then
 		dir="$(cat "$tmp")"
 		rm -f "$tmp"
