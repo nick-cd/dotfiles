@@ -73,3 +73,14 @@ bindkey '^e' edit-command-line
 # antibody bundle <plugin> >> "${ZSHPLUGS}"
 # to install a plugin
 source "${ZSHPLUGS}"
+
+# Load aliases
+[ -f "$HOME/.config/aliases" ] && source "$HOME/.config/aliases"
+
+# Load custom functions
+if [ -f ~/.config/funcs.sh ]; then
+    source ~/.config/funcs.sh
+fi
+
+# bind Ctrl+o to lfcd function
+bindkey -s '^o' 'lfcd\n'

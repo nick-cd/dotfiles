@@ -120,3 +120,11 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Load custom functions
+if [ -f ~/.config/funcs.sh ]; then
+    source ~/.config/funcs.sh
+fi
+
+# bind Ctrl-o to custom lfcd function
+bind '"\C-o":"lfcd\C-m"'
