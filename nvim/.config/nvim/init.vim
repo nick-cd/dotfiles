@@ -1,5 +1,19 @@
 " Comments in Vimscript start with a `"`.
 
+" have Vim jump to the last position when reopening a file
+" Except for gitcommit files where this feature is an annoyance
+fun! JumpToLastPlace()
+	" If filename is .git/COMMIT_EDITMSG
+	" https://stackoverflow.com/questions/4525261/getting-relative-paths-in-vim#24463362
+	if expand("%") =~ '.git/COMMIT_EDITMSG'
+		return
+	endif
+	if line("'\"") > 1 && line("'\"") <= line("$")
+		exe "normal! g'\""
+	endif
+endfun
+autocmd BufReadPost * call JumpToLastPlace()
+
 " files for any web dev should be two spaces
 autocmd FileType yaml,markdown,javascript,css,html setlocal shiftwidth=2 softtabstop=2 expandtab
 
