@@ -20,16 +20,18 @@ lfcd () {
 
 # Creates a file and the directories as nessesary given a path
 mkfiles() {
-	hold="$1"
-	file="${hold##*/}"
-	if [ "$(echo "$1" | grep '.*/.*')" != "" ]; then
-		dirs="${hold%/*}/"
-		mkdir -p "$dirs"
-	else
-		dirs="./"
-	fi
+	for arg in $@
+	do
+		file="${arg##*/}"
+		if [ "$(echo "$1" | grep '.*/.*')" != "" ]; then
+			dirs="${arg%/*}/"
+			mkdir -p "$dirs"
+		else
+			dirs="./"
+		fi
 
-	if [ "$file" != "" ]; then
-		touch "${dirs}${file}"
-	fi
+		if [ "$file" != "" ]; then
+			touch "${dirs}${file}"
+		fi
+	done
 }
