@@ -13,7 +13,30 @@ Plug 'vim-airline/vim-airline'
 " Adds the :Rename comand allowing me to rename files
 Plug 'danro/rename.vim'
 
+" https://github.com/suan/vim-instant-markdown
+" Opens a local web server on port 8090 which parses markdown files
+" Viewable on the browser
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
 call plug#end()
+
+" vim-instant-markdown
+
+" Only update when:
+" No keys have been pressed for a while
+" A while after you leave insert mode
+" You save the file being edited
+let g:instant_markdown_slow = 1
+
+" Turn off autostart. Autostart automatically opens your browser and switchs
+" focus to it which does not make much sense and is annoying. Thus, it makes
+" more sense to do t manually
+" Use :InstantMarkdownPreview to start the server and
+" :InstantMarkdownStop to stop it
+let g:instant_markdown_autostart = 0
+
+" Autoscrolling confuses me, as the screen will appear to random places
+let g:instant_markdown_autoscroll = 0
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
