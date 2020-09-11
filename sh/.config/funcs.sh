@@ -19,7 +19,7 @@ lfcd () {
 }
 
 # Creates a file and the directories as nessesary given a path
-mkfiles() {
+mkpaths() {
 	for arg in $@
 	do
 		file="${arg##*/}"
