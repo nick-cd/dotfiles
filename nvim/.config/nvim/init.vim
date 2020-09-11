@@ -4,7 +4,19 @@
 autocmd FileType yaml,markdown,javascript,css,html setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " vim-plug as the plugin manager https://github.com/junegunn/vim-plug
-call plug#begin('~/.config/nvim/')
+
+" Install vim-plug if not installed already...
+" Taken from Luke Smith's config
+" https://github.com/LukeSmithxyz/voidrice/blob/master/.config/nvim/init.vim
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
+" List of plugins
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 " https://github.com/vim-airline/vim-airline
 " pretty status bar
