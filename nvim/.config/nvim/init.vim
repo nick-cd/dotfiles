@@ -95,6 +95,11 @@ set ruler
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 
+" Splits open at the bottom and on the right
+" taken from Luke Smith's config:
+" https://github.com/LukeSmithxyz/voidrice/blob/master/.config/nvim/init.vim
+set splitbelow splitright
+
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 
