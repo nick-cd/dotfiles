@@ -1,1 +1,1 @@
-ZSHPLUGS=$HOME/.config/zsh/plugins
+ZSHPLUGS=$HOME/.config/zsh/zsh_plugins.sh

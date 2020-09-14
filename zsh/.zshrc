@@ -69,14 +69,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Load aliases
-[ -f "$HOME/.config/aliases" ] && source "$HOME/.config/aliases"
-
-if [ -d "${ZSHPLUGS}" ]; then
-
-	if [ -f "${ZSHPLUGS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-		# syntax-highlighting must be the last plugin sourced
-		# https://github.com/zsh-users/zsh-syntax-highlighting
-		source ${ZSHPLUGS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	fi
-fi
+# plugins list for antibody
+# antibody bundle <plugin> >> "${ZSHPLUGS}"
+# to install a plugin
+source "${ZSHPLUGS}"
