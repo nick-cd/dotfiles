@@ -48,3 +48,5 @@
 	lineNumber = true
 [log]
 	abbrevCommit = true
+[tag]
+	forceSignAnnotated = true
