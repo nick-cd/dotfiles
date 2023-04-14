@@ -133,18 +133,6 @@ syntax on
 " Disable the default Vim startup message.
 set shortmess+=I
 
-" Formatting
-" fancy auto format options that are extremely helpful
-set formatoptions+=2tqncrojpw
-fun! Format()
-    if !(&filetype =~# 'vim' || &filetype =~# 'sh' || &filetype =~# 'python')
-	setlocal formatoptions+=a
-    endif
-endfun
-augroup formatting
-    autocmd BufEnter * call Format()
-augroup END
-
 " Show line numbers.
 set number
 
