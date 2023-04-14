@@ -19,6 +19,18 @@ endif
 
 gitconfig:
 	git config --file=git/.gitconfig.varying core.autocrlf $(AUTOCRLF_VALUE)
+	curl -sS -L https://github.com/git-lfs/git-lfs/releases/download/v3.3.0/git-lfs-linux-amd64-v3.3.0.tar.gz --output git-lfs.tar.gz
+# Remove designated output directory to avoid possible conflicts in the
+# following command sequence
+	rm -rf git-lfs
+# Change extraction output directory
+# https://stackoverflow.com/a/66449935/14426824
+	mkdir git-lfs
+	tar -zxf git-lfs.tar.gz -C git-lfs --strip-components=1
+	cd git-lfs/ && sudo ./install.sh
+# Cleanup residual files
+	rm git-lfs.tar.gz
+	rm -r git-lfs
 
 vscode: utils
 	apt install -y ctags neovim
