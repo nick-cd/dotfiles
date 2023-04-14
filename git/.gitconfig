@@ -1,6 +1,8 @@
 [user]
 	email = defrann8208@outlook.com
 	name = Nicholas Defranco
+[include]
+	path = ./.gitconfig.varying
 [core]
 	editor = vim
 	excludesfile = /home/nick/.config/git/gitignore_global

@@ -1,13 +1,24 @@
-.PHONY: all update utils vscode essential news
+.PHONY: all update utils gitconfig vscode essential news
 
 all: vscode news
 
 update:
 	apt update && apt upgrade -y && apt autoremove -y
 
-utils: update
+utils: update gitconfig
 	apt install -y git stow
 	stow --dir="." --target="$(HOME)" git
+
+# Detect host OS
+# https://stackoverflow.com/a/12099167/14426824
+ifeq ($(OS), WINDOWS_NT)
+AUTOCRLF_VALUE = true
+else
+AUTOCRLF_VALUE = input
+endif
+
+gitconfig:
+	git config --file=git/.gitconfig.varying core.autocrlf $(AUTOCRLF_VALUE)
 
 vscode: utils
 	apt install -y ctags neovim
